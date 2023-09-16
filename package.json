@@ -1,0 +1,68 @@
+{
+  "name": "@remscodes/renault-api-client",
+  "version": "1.0.0",
+  "description": "Http client to use Renault API",
+  "license": "MIT",
+  "author": {
+    "name": "Rémy Abitbol",
+    "url": "https://github.com/remscodes"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node ./test/fixtures/process/test.mjs",
+    "types": "tsc --noEmit",
+    "types:spec": "npm run types -- -p ./tsconfig.spec.json",
+    "types:all": "npm run types & npm run types:spec",
+    "start-server": "node ./test/fixtures/server/server.mjs",
+    "start-web-runner": "wait-on tcp:8080 && web-test-runner",
+    "rm-dist": "node ./scripts/rm-dist.cjs",
+    "playwright": "node ./node_modules/.pnpm/playwright@1.36.2/node_modules/playwright/cli.js",
+    "install-playwright": "npm run playwright -- install --with-deps",
+    "prebuild": "npm run rm-dist",
+    "pretest": "npm run types:all"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remscodes/renault-api-client"
+  },
+  "engines": {
+    "node": ">=18.13.0"
+  },
+  "peerDependencies": {
+    "@remscodes/renault-api": "^1.0.0",
+    "drino": "^1.3.0"
+  },
+  "devDependencies": {
+    "@esm-bundle/chai": "4.3.4-fix.0",
+    "@types/chai": "^4.3.6",
+    "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.17",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.17.15",
+    "@types/sinon": "^10.0.16",
+    "@web/dev-server-esbuild": "^0.4.1",
+    "@web/test-runner": "^0.17.1",
+    "@web/test-runner-playwright": "^0.10.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "sinon": "^15.2.0",
+    "typescript": "^5.2.2",
+    "wait-on": "^7.0.1"
+  },
+  "keywords": [
+    "renault",
+    "client"
+  ],
+  "packageManager": "pnpm@8.7.5",
+  "sideEffects": false
+}
