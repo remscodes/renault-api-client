@@ -38,8 +38,12 @@
     "node": ">=18.13.0"
   },
   "peerDependencies": {
+    "dayjs": "^1.11.9"
+  },
+  "dependencies": {
     "@remscodes/renault-api": "^1.0.0",
-    "drino": "^1.3.0"
+    "drino": "^1.3.0",
+    "thror": "^1.0.1"
   },
   "devDependencies": {
     "@esm-bundle/chai": "4.3.4-fix.0",
