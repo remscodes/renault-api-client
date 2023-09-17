@@ -1,0 +1,43 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "declarationDir": "./dist/types",
+    "sourceMap": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "importHelpers": false,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": false,
+    "useDefineForClassFields": true,
+    "alwaysStrict": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "pretty": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "scripts"
+  ]
+}

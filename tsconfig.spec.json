@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "types": [
+      "mocha",
+      "node"
+    ],
+    "allowJs": true
+  },
+  "include": [
+    "test",
+    "typings"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src",
+    "scripts"
+  ]
+}
