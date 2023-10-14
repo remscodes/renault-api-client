@@ -23,8 +23,8 @@ devDependencies:
     specifier: 4.3.4-fix.0
     version: 4.3.4-fix.0
   '@types/chai':
-    specifier: ^4.3.6
-    version: 4.3.6
+    specifier: ^4.3.8
+    version: 4.3.8
   '@types/cors':
     specifier: ^2.8.14
     version: 2.8.14
@@ -301,7 +301,7 @@ packages:
   /@esm-bundle/chai@4.3.4-fix.0:
     resolution: {integrity: sha512-26SKdM4uvDWlY8/OOOxSB1AqQWeBosCX3wRYUZO7enTAj03CtVxIiCimYVG2WpULcyV51qapK4qTovwkUr5Mlw==}
     dependencies:
-      '@types/chai': 4.3.6
+      '@types/chai': 4.3.8
     dev: true
 
   /@hapi/hoek@9.3.0:
@@ -480,8 +480,8 @@ packages:
       '@types/node': 18.17.17
     dev: true
 
-  /@types/chai@4.3.6:
-    resolution: {integrity: sha512-VOVRLM1mBxIRxydiViqPcKn6MIxZytrbMpd6RJLIWKxUNr3zux8no0Oc7kJx0WAPIitgZ0gkrDS+btlqQpubpw==}
+  /@types/chai@4.3.8:
+    resolution: {integrity: sha512-yW/qTM4mRBBcsA9Xw9FbcImYtFPY7sgr+G/O5RDYVmxiy9a+pE5FyoFUi8JYCZY5nicj8atrr1pcfPiYpeNGOA==}
     dev: true
 
   /@types/co-body@6.1.1:
