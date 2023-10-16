@@ -32,8 +32,8 @@ devDependencies:
     specifier: ^4.17.19
     version: 4.17.19
   '@types/mocha':
-    specifier: ^10.0.1
-    version: 10.0.1
+    specifier: ^10.0.2
+    version: 10.0.2
   '@types/node':
     specifier: ^20.8.6
     version: 20.8.6
@@ -605,8 +605,8 @@ packages:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
     dev: true
 
-  /@types/mocha@10.0.1:
-    resolution: {integrity: sha512-/fvYntiO1GeICvqbQ3doGDIP97vWmvFt83GKguJ6prmQM2iXZfFcq6YE8KteFyRtX2/h5Hf91BYvPodJKFYv5Q==}
+  /@types/mocha@10.0.2:
+    resolution: {integrity: sha512-NaHL0+0lLNhX6d9rs+NSt97WH/gIlRHmszXbQ/8/MV/eVcFNdeJ/GYhrFuUc8K7WuPhRhTSdMkCp8VMzhUq85w==}
     dev: true
 
   /@types/node@18.17.17:
@@ -864,7 +864,7 @@ packages:
     resolution: {integrity: sha512-CfYNZBbUSBiPNKkbF/dhxayecLCYZnu3g4cfgpfgmvLewlVOO6gNxaPt2c1/QhZutzTvXcMlsmaoWyk08F+V6A==}
     engines: {node: '>=16.0.0'}
     dependencies:
-      '@types/mocha': 10.0.1
+      '@types/mocha': 10.0.2
       '@web/test-runner-core': 0.11.4
     transitivePeerDependencies:
       - bufferutil
