@@ -29,8 +29,8 @@ devDependencies:
     specifier: ^2.8.14
     version: 2.8.14
   '@types/express':
-    specifier: ^4.17.19
-    version: 4.17.19
+    specifier: ^4.17.20
+    version: 4.17.20
   '@types/mocha':
     specifier: ^10.0.2
     version: 10.0.2
@@ -466,7 +466,7 @@ packages:
   /@types/accepts@1.3.5:
     resolution: {integrity: sha512-jOdnI/3qTpHABjM5cx1Hc0sKsPoYCp+DP/GJRGtDlPd7fiV9oXGGIcjW/ZOxLIvjGz8MA+uMZI9metHlgqbgwQ==}
     dependencies:
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
     dev: true
 
   /@types/babel__code-frame@7.0.4:
@@ -477,7 +477,7 @@ packages:
     resolution: {integrity: sha512-oyl4jvAfTGX9Bt6Or4H9ni1Z447/tQuxnZsytsCaExKlmJiU8sFgnIBRzJUpKwB5eWn9HuBYlUlVA74q/yN0eQ==}
     dependencies:
       '@types/connect': 3.4.36
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
     dev: true
 
   /@types/chai@4.3.8:
@@ -487,7 +487,7 @@ packages:
   /@types/co-body@6.1.1:
     resolution: {integrity: sha512-I9A1k7o4m8m6YPYJIGb1JyNTLqRWtSPg1JOZPWlE19w8Su2VRgRVp/SkKftQSwoxWHGUxGbON4jltONMumC8bQ==}
     dependencies:
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
       '@types/qs': 6.9.8
     dev: true
 
@@ -498,7 +498,7 @@ packages:
   /@types/connect@3.4.36:
     resolution: {integrity: sha512-P63Zd/JUGq+PdrM1lv0Wv5SBYeA2+CORvbrXbngriYY0jzLUWfQMQQxOhjONEz/wlHOAxOdY7CY65rgQdTjq2w==}
     dependencies:
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
     dev: true
 
   /@types/content-disposition@0.5.6:
@@ -513,9 +513,9 @@ packages:
     resolution: {integrity: sha512-y6KhF1GtsLERUpqOV+qZJrjUGzc0GE6UTa0b5Z/LZ7Nm2mKSdCXmS6Kdnl7fctPNnMSouHjxqEWI12/YqQfk5w==}
     dependencies:
       '@types/connect': 3.4.36
-      '@types/express': 4.17.19
+      '@types/express': 4.17.20
       '@types/keygrip': 1.0.3
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
     dev: true
 
   /@types/cors@2.8.14:
@@ -535,14 +535,14 @@ packages:
   /@types/express-serve-static-core@4.17.36:
     resolution: {integrity: sha512-zbivROJ0ZqLAtMzgzIUC4oNqDG9iF0lSsAqpOD9kbs5xcIM3dTiyuHvBc7R8MtWBp3AAWGaovJa+wzWPjLYW7Q==}
     dependencies:
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
       '@types/qs': 6.9.8
       '@types/range-parser': 1.2.4
       '@types/send': 0.17.1
     dev: true
 
-  /@types/express@4.17.19:
-    resolution: {integrity: sha512-UtOfBtzN9OvpZPPbnnYunfjM7XCI4jyk1NvnFhTVz5krYAnW4o5DCoIekvms+8ApqhB4+9wSge1kBijdfTSmfg==}
+  /@types/express@4.17.20:
+    resolution: {integrity: sha512-rOaqlkgEvOW495xErXMsmyX3WKBInbhG5eqojXYi3cGUaLoRDlXa5d52fkfWZT963AZ3v2eZ4MbKE6WpDAGVsw==}
     dependencies:
       '@types/body-parser': 1.19.3
       '@types/express-serve-static-core': 4.17.36
@@ -594,7 +594,7 @@ packages:
       '@types/http-errors': 2.0.2
       '@types/keygrip': 1.0.3
       '@types/koa-compose': 3.2.6
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
     dev: true
 
   /@types/mime@1.3.2:
@@ -639,7 +639,7 @@ packages:
     resolution: {integrity: sha512-Cwo8LE/0rnvX7kIIa3QHCkcuF21c05Ayb0ZfxPiv0W8VRiZiNW/WuRupHKpqqGVGf7SUA44QSOUKaEd9lIrd/Q==}
     dependencies:
       '@types/mime': 1.3.2
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
     dev: true
 
   /@types/serve-static@1.15.2:
@@ -647,7 +647,7 @@ packages:
     dependencies:
       '@types/http-errors': 2.0.2
       '@types/mime': 3.0.1
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
     dev: true
 
   /@types/sinon@10.0.19:
@@ -663,14 +663,14 @@ packages:
   /@types/ws@7.4.7:
     resolution: {integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==}
     dependencies:
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
     dev: true
 
   /@types/yauzl@2.10.0:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
     dev: true
     optional: true
 
@@ -1151,7 +1151,7 @@ packages:
     engines: {node: '>=12.13.0'}
     hasBin: true
     dependencies:
-      '@types/node': 18.17.17
+      '@types/node': 20.8.6
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
