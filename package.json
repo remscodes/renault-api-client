@@ -50,7 +50,7 @@
     "@types/chai": "^4.3.9",
     "@types/cors": "^2.8.15",
     "@types/express": "^4.17.20",
-    "@types/mocha": "^10.0.2",
+    "@types/mocha": "^10.0.3",
     "@types/node": "^20.8.6",
     "@types/sinon": "^10.0.19",
     "@web/dev-server-esbuild": "^0.4.2",
