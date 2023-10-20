@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^10.0.19
     version: 10.0.19
   '@web/dev-server-esbuild':
-    specifier: ^0.4.2
-    version: 0.4.2
+    specifier: ^0.4.3
+    version: 0.4.3
   '@web/test-runner':
     specifier: ^0.17.2
     version: 0.17.2(typescript@5.2.2)
@@ -712,13 +712,13 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@web/dev-server-core@0.6.1:
-    resolution: {integrity: sha512-djZD4yjKbcZxSHO16FIJrxDyAiGMdF6nVxLqSNlfl+M4nDzRmvLVzumK9rfKCUDs7ZwAwRgd1+dzOFaWYnXqPA==}
+  /@web/dev-server-core@0.6.3:
+    resolution: {integrity: sha512-BWlgxIXQbg3RqUdz9Cfeh3XqFv0KcjQi4DLaZy9s63IlXgNZTzesTfDzliP/mIdWd5r8KZYh/P3n6LMi7CLPjQ==}
     engines: {node: '>=16.0.0'}
     dependencies:
       '@types/koa': 2.13.9
       '@types/ws': 7.4.7
-      '@web/parse5-utils': 2.0.1
+      '@web/parse5-utils': 2.0.2
       chokidar: 3.5.3
       clone: 2.1.2
       es-module-lexer: 1.3.1
@@ -740,12 +740,12 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@web/dev-server-esbuild@0.4.2:
-    resolution: {integrity: sha512-EdSiLIMG0FD13gkXG4GZAjL54i6JOIIDnnoCj9tecfRInWUeqFYyZgFAo5DId8jkFQC9leGlvOf5u2boWjPSig==}
+  /@web/dev-server-esbuild@0.4.3:
+    resolution: {integrity: sha512-uRqzE+oWHmeS+29r7yHqC9PSqf3Dte8NXr0XVrIF42Fzp3dlu4nudz/pRW0TxAnAi40+A6suJcaYUAJfw6rhCA==}
     engines: {node: '>=16.0.0'}
     dependencies:
       '@mdn/browser-compat-data': 4.2.1
-      '@web/dev-server-core': 0.6.1
+      '@web/dev-server-core': 0.6.3
       esbuild: 0.17.19
       parse5: 6.0.1
       ua-parser-js: 1.0.36
@@ -798,6 +798,14 @@ packages:
 
   /@web/parse5-utils@2.0.1:
     resolution: {integrity: sha512-FQI72BU5CXhpp7gLRskOQGGCcwvagLZnMnDwAfjrxo3pm1KOQzr8Vl+438IGpHV62xvjNdF1pjXwXcf7eekWGw==}
+    engines: {node: '>=16.0.0'}
+    dependencies:
+      '@types/parse5': 6.0.3
+      parse5: 6.0.1
+    dev: true
+
+  /@web/parse5-utils@2.0.2:
+    resolution: {integrity: sha512-TogrPNt36zOSjbEd8zoDmUGsN2dqMbk4U+2DrxsnbVxtUIBRCNPIuZ+XeoGF8gpxe2/Yf0dIVz+HW5+wEnqkCg==}
     engines: {node: '>=16.0.0'}
     dependencies:
       '@types/parse5': 6.0.3
