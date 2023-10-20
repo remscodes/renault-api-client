@@ -1,6 +1,6 @@
 {
   "name": "@remscodes/renault-api-client",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Http client to use Renault API",
   "license": "MIT",
   "author": {
@@ -39,7 +39,7 @@
   },
   "peerDependencies": {
     "dayjs": "^1.11.9",
-    "drino": "^1.4.0",
+    "drino": "^1.6.0",
     "thror": "^1.0.1"
   },
   "dependencies": {
