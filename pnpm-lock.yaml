@@ -38,8 +38,8 @@ devDependencies:
     specifier: ^20.8.7
     version: 20.8.7
   '@types/sinon':
-    specifier: ^10.0.19
-    version: 10.0.19
+    specifier: ^10.0.20
+    version: 10.0.20
   '@web/dev-server-esbuild':
     specifier: ^0.4.3
     version: 0.4.3
@@ -652,8 +652,8 @@ packages:
       '@types/node': 20.8.7
     dev: true
 
-  /@types/sinon@10.0.19:
-    resolution: {integrity: sha512-MWZNGPSchIdDfb5FL+VFi4zHsHbNOTQEgjqFQk7HazXSXwUU9PAX3z9XBqb3AJGYr9YwrtCtaSMsT3brYsN/jQ==}
+  /@types/sinon@10.0.20:
+    resolution: {integrity: sha512-2APKKruFNCAZgx3daAyACGzWuJ028VVCUDk6o2rw/Z4PXT0ogwdV4KUegW0MwVs0Zu59auPXbbuBJHF12Sx1Eg==}
     dependencies:
       '@types/sinonjs__fake-timers': 8.1.2
     dev: true
