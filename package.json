@@ -52,7 +52,7 @@
     "@types/express": "^4.17.20",
     "@types/mocha": "^10.0.3",
     "@types/node": "^20.8.7",
-    "@types/sinon": "^10.0.19",
+    "@types/sinon": "^10.0.20",
     "@web/dev-server-esbuild": "^0.4.3",
     "@web/test-runner": "^0.17.2",
     "@web/test-runner-playwright": "^0.10.2",
