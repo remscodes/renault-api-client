@@ -9,11 +9,11 @@ dependencies:
     specifier: ^1.0.1
     version: 1.0.1
   dayjs:
-    specifier: ^1.11.9
-    version: 1.11.9
+    specifier: ^1.11.10
+    version: 1.11.10
   drino:
-    specifier: ^1.6.0
-    version: 1.6.0
+    specifier: ^1.7.0
+    version: 1.7.0
   thror:
     specifier: ^1.0.1
     version: 1.0.1
@@ -1405,8 +1405,8 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  /dayjs@1.11.9:
-    resolution: {integrity: sha512-QvzAURSbQ0pKdIye2txOzNaHmxtUBXerpY0FJsFXUMKbIZeFm5ht1LS/jFsrncjnmtv8HsG0W2g6c0zUjZWmpA==}
+  /dayjs@1.11.10:
+    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
     dev: false
 
   /debounce@1.2.1:
@@ -1515,8 +1515,8 @@ packages:
       path-type: 4.0.0
     dev: true
 
-  /drino@1.6.0:
-    resolution: {integrity: sha512-iQTy2jqSynasRlssBj/l11/V8TS0eSrpNhPlwHHoxN0Yw8itHK8byLGw18wqb/BpxW/QTUvE/orMiT8yRIBReg==}
+  /drino@1.7.0:
+    resolution: {integrity: sha512-wF+utu5tsMz8S6cvtCup0oGLNUSAMstydTgQtxFr4MDir0t+AmtfK+mx/eaviO+JrVX5K0y/fGnk4qaAxPCeMA==}
     engines: {node: '>=18.13.0'}
     dependencies:
       thror: 1.0.1

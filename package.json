@@ -38,8 +38,8 @@
     "node": ">=18.13.0"
   },
   "peerDependencies": {
-    "dayjs": "^1.11.9",
-    "drino": "^1.6.0",
+    "dayjs": "^1.11.10",
+    "drino": "^1.7.0",
     "thror": "^1.0.1"
   },
   "dependencies": {
@@ -67,6 +67,5 @@
     "renault",
     "http"
   ],
-  "packageManager": "pnpm@8.9.0",
-  "sideEffects": false
+  "packageManager": "pnpm@8.9.2"
 }
