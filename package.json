@@ -43,7 +43,7 @@
     "thror": "^1.0.1"
   },
   "dependencies": {
-    "@remscodes/renault-api": "^1.0.1"
+    "@remscodes/renault-api": "^1.1.0"
   },
   "devDependencies": {
     "@esm-bundle/chai": "4.3.4-fix.0",

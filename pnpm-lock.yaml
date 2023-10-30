@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@remscodes/renault-api':
-    specifier: ^1.0.1
-    version: 1.0.1
+    specifier: ^1.1.0
+    version: 1.1.0
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
@@ -377,8 +377,8 @@ packages:
       - supports-color
     dev: true
 
-  /@remscodes/renault-api@1.0.1:
-    resolution: {integrity: sha512-Tb/0Hvbkr/UuIRXsXeHLy5MYMTfNfJCnmdAnZsMfTGffVsotz2BQcpwWZkBn/Z6zwpqneIH5E/wp0ckx8go70w==}
+  /@remscodes/renault-api@1.1.0:
+    resolution: {integrity: sha512-pKL362I/RLUNqR8QJ64+wrVc3J38x+WsK9OX+g3JlVEQJY6ybndUGXYklJ1UHvv8UMvL7ov6KV6PYneyJa7hDw==}
     engines: {node: '>=18.13.0'}
     dev: false
 
