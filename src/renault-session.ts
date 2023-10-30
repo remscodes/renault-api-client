@@ -1,4 +1,4 @@
-import type { Optional } from './shared.model';
+import type { Optional } from './models/shared.model';
 
 interface RenaultSessionInit {
   locale?: string;
@@ -12,11 +12,12 @@ export class RenaultSession {
     this.country = init?.country ?? 'FR';
   }
 
-  public accessor locale: string;
-  public accessor country: string;
+  public readonly locale: string;
+  public readonly country: string;
 
-  public accessor gigyaToken: Optional<string>;
-  public accessor token: Optional<string>;
-  public accessor personId: Optional<string>;
-  public accessor accountId: Optional<string>;
+  public gigyaToken: Optional<string>;
+  public token: Optional<string>;
+
+  public personId: Optional<string>;
+  public accountId: Optional<string>;
 }

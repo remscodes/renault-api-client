@@ -1,7 +1,7 @@
 import type { DateFilter, DateType, Period } from '@remscodes/renault-api';
 import { PERIOD_FORMATS } from '@remscodes/renault-api';
 import dayjs from 'dayjs';
-import type { PartialBy } from './shared.model';
+import type { PartialBy } from '../models/shared.model';
 
 export function dateFilterToParams({ start, end, period }: PartialBy<DateFilter, 'period'>, locale: string): URLSearchParams {
   const params: URLSearchParams = new URLSearchParams({
