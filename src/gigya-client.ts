@@ -1,4 +1,4 @@
-import type { AccountInfo, LoginInfo, Token } from '@remscodes/renault-api';
+import type { AccountInfo, LoginInfo, TokenInfo } from '@remscodes/renault-api';
 import { GigyaApi } from '@remscodes/renault-api';
 import type { DrinoInstance, HttpRequest, RequestController } from 'drino';
 import drino from 'drino';
@@ -39,9 +39,9 @@ export class GigyaClient {
       });
   }
 
-  public getJwt(): RequestController<Token> {
-    return this.http.post<Token>(GigyaApi.GET_JWT_URL, {})
-      .check((token: Token) => {
+  public getJwt(): RequestController<TokenInfo> {
+    return this.http.post<TokenInfo>(GigyaApi.GET_JWT_URL, {})
+      .check((token: TokenInfo) => {
         this.session.token = token.id_token;
       });
   }
