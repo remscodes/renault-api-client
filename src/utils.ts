@@ -1,5 +1,5 @@
 import type { DateFilter, DateType, Period } from '@remscodes/renault-api';
-import { PERIOD_FORMATS } from '@remscodes/renault-api/dist/types/kamereon/kamereon.constants';
+import { PERIOD_FORMATS } from '@remscodes/renault-api';
 import dayjs from 'dayjs';
 import type { PartialBy } from './shared.model';
 
