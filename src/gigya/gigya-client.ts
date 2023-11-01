@@ -16,7 +16,7 @@ export class GigyaClient {
     this.session = init.session ?? new RenaultSession();
   }
 
-  private readonly session: RenaultSession;
+  public readonly session: RenaultSession;
 
   private readonly httpClient: DrinoInstance = drino.create({
     requestsConfig: {
