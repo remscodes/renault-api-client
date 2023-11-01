@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^10.0.20
     version: 10.0.20
   '@web/dev-server-esbuild':
-    specifier: ^0.4.3
-    version: 0.4.3
+    specifier: ^0.4.4
+    version: 0.4.4
   '@web/test-runner':
     specifier: ^0.17.2
     version: 0.17.2(typescript@5.2.2)
@@ -753,8 +753,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@web/dev-server-esbuild@0.4.3:
-    resolution: {integrity: sha512-uRqzE+oWHmeS+29r7yHqC9PSqf3Dte8NXr0XVrIF42Fzp3dlu4nudz/pRW0TxAnAi40+A6suJcaYUAJfw6rhCA==}
+  /@web/dev-server-esbuild@0.4.4:
+    resolution: {integrity: sha512-gxXvj1mw0/b8HP2ARaXgQEmWH/nyPWvRuzSyEvybMm9oThe//z6K0ksj2qyffT/X7yblhEReKqWK7djCaB0M0Q==}
     engines: {node: '>=16.0.0'}
     dependencies:
       '@mdn/browser-compat-data': 4.2.1
