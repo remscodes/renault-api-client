@@ -8,22 +8,30 @@
     "url": "https://github.com/remscodes"
   },
   "scripts": {
-    "build": "tsc",
-    "test": "node ./test/fixtures/process/test.mjs",
+    "build": "rollup -c",
+    "test": "web-test-runner",
     "types": "tsc --noEmit",
     "types:spec": "npm run types -- -p ./tsconfig.spec.json",
     "types:all": "npm run types & npm run types:spec",
-    "start-server": "node ./test/fixtures/server/server.mjs",
-    "start-web-runner": "wait-on tcp:8080 && web-test-runner",
     "rm-dist": "node ./scripts/rm-dist.cjs",
-    "playwright": "node ./node_modules/.pnpm/playwright@1.36.2/node_modules/playwright/cli.js",
+    "playwright": "node ./node_modules/.pnpm/playwright@1.38.0/node_modules/playwright/cli.js",
     "install-playwright": "npm run playwright -- install --with-deps",
     "prebuild": "npm run rm-dist",
     "pretest": "npm run types:all"
   },
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
   "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "node": "./dist/cjs/index.cjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.mjs",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -37,35 +45,33 @@
   "engines": {
     "node": ">=18.13.0"
   },
-  "peerDependencies": {
+  "dependencies": {
+    "@remscodes/renault-api": "^1.1.0",
     "dayjs": "^1.11.10",
     "drino": "^1.7.0",
     "thror": "^1.0.1"
   },
-  "dependencies": {
-    "@remscodes/renault-api": "^1.1.0"
-  },
   "devDependencies": {
     "@esm-bundle/chai": "4.3.4-fix.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "@types/chai": "^4.3.9",
-    "@types/cors": "^2.8.15",
-    "@types/express": "^4.17.20",
     "@types/mocha": "^10.0.3",
-    "@types/node": "^20.8.9",
+    "@types/node": "^20.8.10",
     "@types/sinon": "^10.0.20",
-    "@web/dev-server-esbuild": "^0.4.3",
-    "@web/test-runner": "^0.17.2",
-    "@web/test-runner-playwright": "^0.10.2",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "helmet": "^7.0.0",
-    "sinon": "^17.0.0",
-    "typescript": "^5.2.2",
-    "wait-on": "^7.0.1"
+    "@web/dev-server-esbuild": "^1.0.0",
+    "@web/test-runner": "^0.18.0",
+    "@web/test-runner-playwright": "^0.11.0",
+    "esbuild": "^0.19.5",
+    "rollup": "^4.2.0",
+    "rollup-plugin-bundle-size": "^1.0.3",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.0",
+    "sinon": "^17.0.1",
+    "typescript": "^5.2.2"
   },
   "keywords": [
     "renault",
     "http"
   ],
-  "packageManager": "pnpm@8.10.0"
+  "packageManager": "pnpm@8.10.2"
 }
