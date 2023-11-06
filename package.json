@@ -46,7 +46,7 @@
     "node": ">=18.13.0"
   },
   "dependencies": {
-    "@remscodes/renault-api": "^1.1.0",
+    "@remscodes/renault-api": "^1.2.0",
     "dayjs": "^1.11.10",
     "drino": "^1.7.0",
     "thror": "^1.0.1"
