@@ -1,4 +1,4 @@
-import type { AccountInfo, LoginInfo, LogoutInfo, TokenInfo, TokenPublicKey } from '@remscodes/renault-api';
+import type { AccountInfo, LoginInfo, LogoutInfo, TokenInfo, TokenPublicInfo } from '@remscodes/renault-api';
 import { GigyaApi } from '@remscodes/renault-api';
 import type { DrinoInstance, HttpRequest, HttpResponse } from 'drino';
 import drino from 'drino';
@@ -68,13 +68,13 @@ export class GigyaClient {
       .consume();
   }
 
-  public getJwtPublicKey(): Promise<TokenPublicKey> {
+  public getJwtPublicKey(): Promise<TokenPublicInfo> {
     return this.httpClient
-      .post<TokenPublicKey>(GigyaApi.GET_JWT_PUBLIC_KEY_URL, {}, {
+      .post<TokenPublicInfo>(GigyaApi.GET_JWT_PUBLIC_KEY_URL, {}, {
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<TokenPublicKey>) => fixGigyaResponse(res))
-      .transform((res: HttpResponse<TokenPublicKey>) => res.body)
+      .transform((res: HttpResponse<TokenPublicInfo>) => fixGigyaResponse(res))
+      .transform((res: HttpResponse<TokenPublicInfo>) => res.body)
       .consume();
   }
 
