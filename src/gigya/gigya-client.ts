@@ -20,9 +20,7 @@ export class GigyaClient {
 
   private readonly httpClient: DrinoInstance = drino.create({
     requestsConfig: {
-      queryParams: {
-        apikey: GigyaApi.KEY,
-      },
+      queryParams: { apikey: GigyaApi.KEY },
       progress: { download: { inspect: false } },
     },
     interceptors: {

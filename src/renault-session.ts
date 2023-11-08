@@ -12,8 +12,8 @@ export class RenaultSession {
     this.country = init?.country ?? 'FR';
   }
 
-  public readonly locale: string;
-  public readonly country: string;
+  public locale: string;
+  public country: string;
 
   public gigyaToken: Optional<string>;
   public token: Optional<string>;
