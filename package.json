@@ -9,13 +9,10 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "test": "web-test-runner",
     "types": "tsc --noEmit",
     "types:spec": "npm run types -- -p ./tsconfig.spec.json",
     "types:all": "npm run types & npm run types:spec",
     "rm-dist": "node ./scripts/rm-dist.cjs",
-    "playwright": "node ./node_modules/.pnpm/playwright@1.38.0/node_modules/playwright/cli.js",
-    "install-playwright": "npm run playwright -- install --with-deps",
     "prebuild": "npm run rm-dist",
     "pretest": "npm run types:all"
   },
@@ -52,21 +49,13 @@
     "thror": "^1.0.1"
   },
   "devDependencies": {
-    "@esm-bundle/chai": "4.3.4-fix.0",
     "@rollup/plugin-terser": "^0.4.4",
-    "@types/chai": "^4.3.10",
-    "@types/mocha": "^10.0.4",
     "@types/node": "^20.9.0",
-    "@types/sinon": "^17.0.1",
-    "@web/dev-server-esbuild": "^1.0.0",
-    "@web/test-runner": "^0.18.0",
-    "@web/test-runner-playwright": "^0.11.0",
     "esbuild": "^0.19.5",
     "rollup": "^4.3.0",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-esbuild": "^6.1.0",
-    "sinon": "^17.0.1",
     "typescript": "^5.2.2"
   },
   "keywords": [
