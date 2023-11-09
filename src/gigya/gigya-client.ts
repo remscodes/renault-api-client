@@ -10,14 +10,21 @@ interface GigyaClientInit {
   session?: RenaultSession;
 }
 
+/**
+ * Http client to use Gigya API.
+ */
 export class GigyaClient {
 
   public constructor(init: GigyaClientInit) {
     this.session = init.session ?? new RenaultSession();
   }
 
+  /**
+   * The user session.
+   */
   public readonly session: RenaultSession;
 
+  /** @internal */
   private readonly httpClient: DrinoInstance = drino.create({
     requestsConfig: {
       queryParams: { apikey: GigyaApi.KEY },
@@ -31,6 +38,11 @@ export class GigyaClient {
     },
   });
 
+  /**
+   * Login to Gigya service.
+   * @param {string} loginID - The user login.
+   * @param {string} password - The user password.
+   */
   public login(loginID: string, password: string): Promise<LoginInfo> {
     return this.httpClient
       .post<LoginInfo>(GigyaApi.LOGIN_URL, {}, {
@@ -43,6 +55,9 @@ export class GigyaClient {
       .consume();
   }
 
+  /**
+   * Get account info.
+   */
   public getAccountInfo(): Promise<AccountInfo> {
     return this.httpClient
       .post<AccountInfo>(GigyaApi.GET_ACCOUNT_INFO_URL, {}, {
@@ -54,6 +69,10 @@ export class GigyaClient {
       .consume();
   }
 
+  /**
+   * Get JWT.
+   * @param {number} [expiration = 900] - The choosen expiration (in milliseconds) of the JWT.
+   */
   public getJwt(expiration: number = 900): Promise<TokenInfo> {
     return this.httpClient
       .post<TokenInfo>(GigyaApi.GET_JWT_URL, {}, {
@@ -66,6 +85,9 @@ export class GigyaClient {
       .consume();
   }
 
+  /**
+   * Get public info about JWT key.
+   */
   public getJwtPublicKey(): Promise<TokenPublicInfo> {
     return this.httpClient
       .post<TokenPublicInfo>(GigyaApi.GET_JWT_PUBLIC_KEY_URL, {}, {
@@ -76,6 +98,9 @@ export class GigyaClient {
       .consume();
   }
 
+  /**
+   * Logout from Gigya service.
+   */
   public logout(): Promise<LogoutInfo> {
     return this.httpClient
       .post<LogoutInfo>(GigyaApi.LOGOUT_URL, {}, {

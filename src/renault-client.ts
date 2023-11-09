@@ -6,6 +6,9 @@ interface RenaultClientInit {
   session?: RenaultSession;
 }
 
+/**
+ * Http client to use Renault API.
+ */
 export class RenaultClient {
 
   public constructor(init?: RenaultClientInit) {
@@ -15,8 +18,18 @@ export class RenaultClient {
     this.kamereon = new KamereonClient({ session: this.session });
   }
 
+  /**
+   * The user session.
+   */
   public readonly session: RenaultSession;
 
+  /**
+   * The sub Gigya http client.
+   */
   public readonly gigya: GigyaClient;
+
+  /**
+   * the sub Kamereon http client.
+   */
   public readonly kamereon: KamereonClient;
 }
