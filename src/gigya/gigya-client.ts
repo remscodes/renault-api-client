@@ -71,7 +71,7 @@ export class GigyaClient {
 
   /**
    * Get JWT.
-   * @param {number} [expiration = 900] - The choosen expiration (in milliseconds) of the JWT.
+   * @param {number} [expiration = 900] - The chosen expiration (in milliseconds) of the JWT.
    */
   public getJwt(expiration: number = 900): Promise<TokenInfo> {
     return this.httpClient

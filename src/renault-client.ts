@@ -29,7 +29,7 @@ export class RenaultClient {
   public readonly gigya: GigyaClient;
 
   /**
-   * the sub Kamereon http client.
+   * The sub Kamereon http client.
    */
   public readonly kamereon: KamereonClient;
 }
