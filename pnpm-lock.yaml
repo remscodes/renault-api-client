@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@remscodes/renault-api':
-    specifier: ^1.2.0
-    version: 1.2.0
+    specifier: ^1.2.2
+    version: 1.2.2
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
@@ -309,8 +309,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@remscodes/renault-api@1.2.0:
-    resolution: {integrity: sha512-kHuS0HEE0txveHjQ1ICdh/7l0G4u6mWgniEhudSVkBAye3bnaSNaFeIQZxhJsQqagFCErq4gGSsiTwidiBZngA==}
+  /@remscodes/renault-api@1.2.2:
+    resolution: {integrity: sha512-7iamPwBH54SzHhnz06r9SPjoplT/6vcjS0zCO1pBSaaZZB82Ib+hHAtNy8LxVA62OHoTbGuhWEZTaGwnmGtwnQ==}
     engines: {node: '>=18.13.0'}
     dev: false
 
