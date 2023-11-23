@@ -1,6 +1,6 @@
 <div align="center">
     <h1>Renault API Client</h1>
-    <p>Http client to use Renault API </p>
+    <p>Http client to use Renault API</p>
 </div> 
 
 <div align="center">
@@ -19,6 +19,8 @@ npm install @remscodes/renault-api-client
 ```
 
 ## Usage
+
+### Example
 
 ```ts
 import { RenaultClient } from '@remscodes/renault-api-client';
@@ -47,9 +49,9 @@ const { vin } = (await kamereon.getAccountVehicles()).vehicleLinks[0];
 const batteryStatus = await kamereon.readBatteryStatus(vin);
 ```
 
-## Session
+### Session
 
-Auth info are stored in `RenaultSession` instance.
+Authentication info are stored in `RenaultSession` instance.
 
 ```ts
 const renault = new RenaultClient();
@@ -58,12 +60,27 @@ const session = renault.session;
 
 ```ts
 class RenaultSession {
+  // Locale that will be used to format date.
+  // default: "fr_FR"
   locale: string;
+
+  // Country code that will use as http param for Kamereon.
+  // default: "FR"
   country: string;
-  gigyaToken: Optional<string>;
-  token: Optional<string>;
-  personId: Optional<string>;
-  accountId: Optional<string>;
+
+  // Token to use Gigya getJWT API.
+  // Get by Gigya login API.
+  gigyaToken: string | undefined;
+
+  // Token to use Kamereon API.
+  // Get by Gigya getJWT API.
+  token: string | undefined;
+
+  // Selected person id.
+  personId: string | undefined;
+  
+  // Selected account id.
+  accountId: string | undefined;
 }
 ```
 
