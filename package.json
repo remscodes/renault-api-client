@@ -1,6 +1,6 @@
 {
   "name": "@remscodes/renault-api-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Http client to use Renault API",
   "license": "MIT",
   "author": {
