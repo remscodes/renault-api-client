@@ -52,7 +52,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@types/node": "^20.10.0",
     "esbuild": "^0.19.8",
-    "rollup": "^4.5.1",
+    "rollup": "^4.6.0",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-esbuild": "^6.1.0",
