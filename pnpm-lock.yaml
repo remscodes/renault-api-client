@@ -23,8 +23,8 @@ devDependencies:
     specifier: ^0.4.4
     version: 0.4.4(rollup@4.6.1)
   '@types/node':
-    specifier: ^20.10.1
-    version: 20.10.1
+    specifier: ^20.10.3
+    version: 20.10.3
   esbuild:
     specifier: ^0.19.8
     version: 0.19.8
@@ -444,8 +444,8 @@ packages:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
     dev: true
 
-  /@types/node@20.10.1:
-    resolution: {integrity: sha512-T2qwhjWwGH81vUEx4EXmBKsTJRXFXNZTL4v0gi01+zyBmCwzE6TyHszqX01m+QHTEq+EZNo13NeJIdEqf+Myrg==}
+  /@types/node@20.10.3:
+    resolution: {integrity: sha512-XJavIpZqiXID5Yxnxv3RUDKTN5b81ddNC3ecsA0SoFXz/QU8OGBwZGMomiq0zw+uuqbL/krztv/DINAQ/EV4gg==}
     dependencies:
       undici-types: 5.26.5
     dev: true
