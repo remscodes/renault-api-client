@@ -1,24 +1,41 @@
 import type { ActionChargeMode, AdapterInfo, BatteryStatus, ChargeHistory, ChargeMode, ChargeModeInputs, Charges, ChargeScheduleInputs, ChargingSettings, Cockpit, DateFilter, HvacHistory, HvacScheduleInputs, HvacSessions, HvacSettings, HvacStartInputs, HvacStatus, LockStatus, NotificationSettingsData, Person, ResStateData, VehicleContract, VehicleDetails, VehicleLocation, Vehicles } from '@remscodes/renault-api';
 import { KamereonApi, PERIOD_TZ_FORMAT } from '@remscodes/renault-api';
-import type { DrinoInstance, HttpRequest } from 'drino';
+import type { DrinoInstance, HttpErrorResponse, HttpRequest } from 'drino';
 import drino from 'drino';
 import { emitError } from 'thror';
+import type { ClientInit } from '../models/client-init.model';
 import type { Optional } from '../models/shared.model';
 import { RenaultSession } from '../renault-session';
 import { dateFilterToParams, formatDate } from '../utils/date-utils';
 import type { PerformApiUrl, ReadApiUrl } from './models/kamereon-url.models';
-
-interface KamereonClientInit {
-  session?: RenaultSession;
-}
 
 /**
  * Http client to use Kamereon API.
  */
 export class KamereonClient {
 
-  public constructor(init: KamereonClientInit) {
-    this.session = init.session ?? new RenaultSession();
+  public constructor(init?: ClientInit) {
+    this.session = init?.session ?? new RenaultSession();
+
+    this.httpClient = drino.create({
+      requestsConfig: {
+        headers: {
+          apikey: KamereonApi.KEY,
+          accept: 'application/json',
+          'content-type': 'application/vnd.api+json',
+        },
+        progress: { download: { inspect: false } },
+      },
+      interceptors: {
+        beforeConsume: (req: HttpRequest) => {
+          const token: Optional<string> = this.session.token;
+          if (token) req.headers.set('x-gigya-id_token', token);
+
+          req.url.searchParams.set('country', this.session.country);
+        },
+        beforeError: (res: HttpErrorResponse) => init?.onError?.(res),
+      },
+    });
   }
 
   /**
@@ -27,24 +44,7 @@ export class KamereonClient {
   public readonly session: RenaultSession;
 
   /** @internal */
-  private readonly httpClient: DrinoInstance = drino.create({
-    requestsConfig: {
-      headers: {
-        apikey: KamereonApi.KEY,
-        accept: 'application/json',
-        'content-type': 'application/vnd.api+json',
-      },
-      progress: { download: { inspect: false } },
-    },
-    interceptors: {
-      beforeConsume: (req: HttpRequest) => {
-        const token: Optional<string> = this.session.token;
-        if (token) req.headers.set('x-gigya-id_token', token);
-
-        req.url.searchParams.set('country', this.session.country);
-      },
-    },
-  });
+  private readonly httpClient: DrinoInstance;
 
   /**
    * Get user person info.
