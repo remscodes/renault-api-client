@@ -1,22 +1,33 @@
 import type { AccountInfo, LoginInfo, LogoutInfo, TokenInfo, TokenPublicInfo } from '@remscodes/renault-api';
 import { GigyaApi } from '@remscodes/renault-api';
-import type { DrinoInstance, HttpRequest, HttpResponse } from 'drino';
+import type { DrinoInstance, HttpErrorResponse, HttpRequest, HttpResponse } from 'drino';
 import drino from 'drino';
+import type { ClientInit } from '../models/client-init.model';
 import type { Optional } from '../models/shared.model';
 import { RenaultSession } from '../renault-session';
 import { fixGigyaResponse } from './gigya-fix';
-
-interface GigyaClientInit {
-  session?: RenaultSession;
-}
 
 /**
  * Http client to use Gigya API.
  */
 export class GigyaClient {
 
-  public constructor(init: GigyaClientInit) {
-    this.session = init.session ?? new RenaultSession();
+  public constructor(init?: ClientInit) {
+    this.session = init?.session ?? new RenaultSession();
+
+    this.httpClient = drino.create({
+      requestsConfig: {
+        queryParams: { apikey: GigyaApi.KEY },
+        progress: { download: { inspect: false } },
+      },
+      interceptors: {
+        beforeConsume: (req: HttpRequest) => {
+          const token: Optional<string> = this.session.gigyaToken;
+          if (token) req.url.searchParams.set('login_token', token);
+        },
+        beforeError: (res: HttpErrorResponse) => init?.onError?.(res),
+      },
+    });
   }
 
   /**
@@ -25,18 +36,7 @@ export class GigyaClient {
   public readonly session: RenaultSession;
 
   /** @internal */
-  private readonly httpClient: DrinoInstance = drino.create({
-    requestsConfig: {
-      queryParams: { apikey: GigyaApi.KEY },
-      progress: { download: { inspect: false } },
-    },
-    interceptors: {
-      beforeConsume: (req: HttpRequest) => {
-        const token: Optional<string> = this.session.gigyaToken;
-        if (token) req.url.searchParams.set('login_token', token);
-      },
-    },
-  });
+  private readonly httpClient: DrinoInstance;
 
   /**
    * Login to Gigya service.
