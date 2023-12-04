@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
-    "@types/node": "^20.10.1",
+    "@types/node": "^20.10.3",
     "esbuild": "^0.19.8",
     "rollup": "^4.6.1",
     "rollup-plugin-bundle-size": "^1.0.3",
