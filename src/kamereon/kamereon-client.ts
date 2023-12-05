@@ -365,17 +365,24 @@ export class KamereonClient {
   /** @internal */
   private read<T>(apiUrl: ReadApiUrl, vin: string, accountId: string | undefined, queryParams?: URLSearchParams): Promise<T> {
     const requiredAccountId: string = this.getAccountIdOrThrow(accountId);
+    const requiredVin: string = this.getVinOrThrow(vin);
     return this.httpClient
-      .get(KamereonApi[apiUrl](requiredAccountId, vin), { queryParams })
+      .get(KamereonApi[apiUrl](requiredAccountId, requiredVin), { queryParams })
       .consume();
   }
 
   /** @internal */
   private perform<T>(apiUrl: PerformApiUrl, data: any, vin: string, accountId: string | undefined): Promise<T> {
     const requiredAccountId: string = this.getAccountIdOrThrow(accountId);
+    const requiredVin: string = this.getVinOrThrow(vin);
     return this.httpClient
-      .post(KamereonApi[apiUrl](requiredAccountId, vin), { data })
+      .post(KamereonApi[apiUrl](requiredAccountId, requiredVin), { data })
       .consume();
+  }
+
+  /** @internal */
+  private getPersonIdOrThrow(personId?: string): string {
+    return personId || this.getFromSessionOrThrow('personId');
   }
 
   /** @internal */
@@ -384,8 +391,8 @@ export class KamereonClient {
   }
 
   /** @internal */
-  private getPersonIdOrThrow(personId?: string): string {
-    return personId || this.getFromSessionOrThrow('personId');
+  private getVinOrThrow(vin?: string): string {
+    return vin || this.getFromSessionOrThrow('vin');
   }
 
   /** @internal */

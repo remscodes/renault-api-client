@@ -1,8 +1,8 @@
 import type { KamereonApi } from '@remscodes/renault-api';
-import type { Prefixed } from '../../models/shared.model';
+import type { PrefixWith } from '../../models/shared.model';
 
 /** @internal **/
-export type ReadApiUrl = keyof Omit<typeof KamereonApi, 'KEY' | Prefixed<'PERFORM_'>>
+export type ReadApiUrl = keyof Omit<typeof KamereonApi, 'KEY' | PrefixWith<'PERFORM_'>>
 
 /** @internal **/
-export type PerformApiUrl = keyof Pick<typeof KamereonApi, Extract<keyof typeof KamereonApi, Prefixed<'PERFORM_'>>>
+export type PerformApiUrl = keyof Pick<typeof KamereonApi, Extract<keyof typeof KamereonApi, PrefixWith<'PERFORM_'>>>
