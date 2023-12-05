@@ -7,7 +7,7 @@ import type { ClientInit } from '../models/client-init.model';
 import type { Optional } from '../models/shared.model';
 import { RenaultSession } from '../renault-session';
 import { dateFilterToParams, formatDate } from '../utils/date-utils';
-import type { KamereonMethod, PerformArgs, ReadArgs } from './models/kamereon-url.models';
+import type { KamereonMethod, PerformArgs, ReadArgs } from './models/kamereon-client.models';
 
 /**
  * Http client to use Kamereon API.
