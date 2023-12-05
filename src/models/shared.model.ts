@@ -6,4 +6,4 @@ export type PartialBy<T, P extends keyof T> =
   & Omit<T, P>
   & Partial<Pick<T, P>>
 
-export type Prefixed<prefix extends string> = `${prefix}${string}`
+export type PrefixWith<prefix extends string> = `${prefix}${string}`
