@@ -23,7 +23,7 @@ export class RenaultSession {
   public locale: string;
   /**
    * Country code that will use as http param for Kamereon.
-   * 
+   *
    * @default "FR"
    */
   public country: string;
