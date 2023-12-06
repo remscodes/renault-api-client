@@ -33,7 +33,7 @@ export class KamereonClient {
 
           req.url.searchParams.set('country', this.session.country);
         },
-        beforeError: (res: HttpErrorResponse) => init?.onError?.(res),
+        beforeError: (res: HttpErrorResponse) => init?.onError?.(res, this.session),
       },
     });
   }

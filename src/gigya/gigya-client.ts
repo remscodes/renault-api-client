@@ -25,7 +25,7 @@ export class GigyaClient {
           const token: Optional<string> = this.session.gigyaToken;
           if (token) req.url.searchParams.set('login_token', token);
         },
-        beforeError: (res: HttpErrorResponse) => init?.onError?.(res),
+        beforeError: (res: HttpErrorResponse) => init?.onError?.(res, this.session),
       },
     });
   }
