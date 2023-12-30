@@ -1,3 +1,11 @@
+# 1.1.1 (2023-12-30)
+
+### Fixes
+
+- Fix the usage of this library as CommonJS module.
+
+> Commits : https://github.com/remscodes/renault-api-client/commits/v1.1.1
+
 # 1.1.0 (2023-12-06)
 
 ### Features
