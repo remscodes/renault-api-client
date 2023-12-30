@@ -16,6 +16,7 @@
     "node_modules",
     "dist",
     "src",
-    "scripts"
+    "scripts",
+    "tests/imports"
   ]
 }
