@@ -43,8 +43,8 @@
   "peerDependencies": {
     "@remscodes/renault-api": "^1.2.2",
     "dayjs": "^1.11.10",
-    "drino": "^1.7.0",
-    "thror": "^1.0.1"
+    "drino": "^1.8.2",
+    "thror": "^1.0.2"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
