@@ -23,9 +23,7 @@
   "exports": {
     ".": {
       "import": "./dist/esm/index.mjs",
-      "node": "./dist/cjs/index.cjs",
       "require": "./dist/cjs/index.cjs",
-      "default": "./dist/esm/index.mjs",
       "types": "./dist/types/index.d.ts"
     }
   },
