@@ -9,7 +9,8 @@ const config = {
     esbuildPlugin({ ts: true })
   ],
   files: [
-    'tests/**/*.spec.ts'
+    'tests/**/*.spec.ts',
+    '!tests/imports/**'
   ],
   nodeResolve: true,
   concurrency: 1,
