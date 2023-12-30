@@ -1,0 +1,19 @@
+{
+  "name": "renault-api-client-import-tests",
+  "private": true,
+  "scripts": {
+    "start:all": "run-s start:cjs start:mjs start:cts start:mts",
+    "start:cjs": "node commonjs.cjs",
+    "start:mjs": "node esm.mjs",
+    "start:cts": "ts-node --project tsconfig.cjs.json commonjs-t.cts",
+    "start:mts": "node --no-warnings=ExperimentalWarning --experimental-specifier-resolution=node --loader ts-node/esm esm-t.mts"
+  },
+  "dependencies": {
+    "@remscodes/renault-api-client": "file:../.."
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
