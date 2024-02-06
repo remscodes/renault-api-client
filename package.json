@@ -61,6 +61,6 @@
     "api",
     "http"
   ],
-  "packageManager": "pnpm@8.13.1",
+  "packageManager": "pnpm@8.15.1",
   "sideEffects": false
 }
