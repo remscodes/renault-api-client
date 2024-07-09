@@ -8,25 +8,27 @@ import { RenaultSession } from './renault-session';
  */
 export class RenaultClient {
 
-  public constructor(init?: ClientInit) {
-    this.session = init?.session ?? new RenaultSession();
+  public constructor(init: ClientInit = {}) {
+    const { session = new RenaultSession(), onError } = init;
 
-    this.gigya = new GigyaClient({ session: this.session, onError: init?.onError });
-    this.kamereon = new KamereonClient({ session: this.session, onError: init?.onError });
+    this.session = session;
+
+    this.gigya = new GigyaClient({ session: this.session, onError });
+    this.kamereon = new KamereonClient({ session: this.session, onError });
   }
 
   /**
    * The user session.
    */
-  public readonly session: RenaultSession;
+  public session: RenaultSession;
 
   /**
-   * The sub Gigya http client.
+   * The Gigya http client.
    */
   public readonly gigya: GigyaClient;
 
   /**
-   * The sub Kamereon http client.
+   * The Kamereon http client.
    */
   public readonly kamereon: KamereonClient;
 }
