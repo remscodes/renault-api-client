@@ -1,3 +1,11 @@
+# 1.1.3 (2024-07-09)
+
+### Fixes
+
+- Fix peer dep.
+
+> Commits : https://github.com/remscodes/renault-api-client/commits/v1.1.3
+
 # 1.1.2 (2024-07-09)
 
 ### Update
