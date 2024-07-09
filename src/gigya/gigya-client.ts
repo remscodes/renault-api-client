@@ -12,8 +12,10 @@ import { fixGigyaResponse } from './gigya-fix';
  */
 export class GigyaClient {
 
-  public constructor(init?: ClientInit) {
-    this.session = init?.session ?? new RenaultSession();
+  public constructor(init: ClientInit = {}) {
+    const { session = new RenaultSession(), onError } = init;
+
+    this.session = session;
 
     this.httpClient = drino.create({
       requestsConfig: {
@@ -25,7 +27,7 @@ export class GigyaClient {
           const token: Optional<string> = this.session.gigyaToken;
           if (token) req.url.searchParams.set('login_token', token);
         },
-        beforeError: (res: HttpErrorResponse) => init?.onError?.(res, this.session),
+        beforeError: (res: HttpErrorResponse) => onError?.(res, this.session),
       },
     });
   }
@@ -33,7 +35,7 @@ export class GigyaClient {
   /**
    * The user session.
    */
-  public readonly session: RenaultSession;
+  public session: RenaultSession;
 
   /** @internal */
   private readonly httpClient: DrinoInstance;
@@ -76,7 +78,10 @@ export class GigyaClient {
   public getJwt(expiration: number = 900): Promise<TokenInfo> {
     return this.httpClient
       .post<TokenInfo>(GigyaApi.GET_JWT_URL, {}, {
-        queryParams: { fields: 'data.personId,data.gigyaDataCenter', expiration: `${expiration}` },
+        queryParams: {
+          fields: ['data.personId', 'data.gigyaDataCenter'],
+          expiration: `${expiration}`,
+        },
         wrapper: 'response',
       })
       .transform((res: HttpResponse<TokenInfo>) => fixGigyaResponse(res))
