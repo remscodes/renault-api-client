@@ -53,7 +53,7 @@ export class KamereonClient {
   public getPerson(personId?: string): Promise<Person> {
     const requiredPersonId: string = this.getPersonIdOrThrow(personId, 'getPerson');
     return this.httpClient
-      .get(KamereonApi.PERSON_URL(requiredPersonId))
+      .get<Person>(KamereonApi.PERSON_URL(requiredPersonId))
       .consume();
   }
 
@@ -64,7 +64,7 @@ export class KamereonClient {
   public getAccountVehicles(accountId?: string): Promise<Vehicles> {
     const requiredAccountId: string = this.getAccountIdOrThrow(accountId, 'getAccountVehicles');
     return this.httpClient
-      .get(KamereonApi.ACCOUNT_VEHICLES_URL(requiredAccountId))
+      .get<Vehicles>(KamereonApi.ACCOUNT_VEHICLES_URL(requiredAccountId))
       .consume();
   }
 
@@ -498,7 +498,7 @@ export class KamereonClient {
     const requiredAccountId: string = this.getAccountIdOrThrow(accountId, method);
     const requiredVin: string = this.getVinOrThrow(vin, method);
     return this.httpClient
-      .get(KamereonApi[apiUrl](requiredAccountId, requiredVin), { queryParams })
+      .get<T>(KamereonApi[apiUrl](requiredAccountId, requiredVin), { queryParams })
       .consume();
   }
 
@@ -507,7 +507,7 @@ export class KamereonClient {
     const requiredAccountId: string = this.getAccountIdOrThrow(accountId, method);
     const requiredVin: string = this.getVinOrThrow(vin, method);
     return this.httpClient
-      .post(KamereonApi[apiUrl](requiredAccountId, requiredVin), { data })
+      .post<T>(KamereonApi[apiUrl](requiredAccountId, requiredVin), { data })
       .consume();
   }
 
