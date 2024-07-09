@@ -49,7 +49,8 @@ const { vin } = vehicles.vehicleLinks[0];
 renault.session.vin = vin;
 
 // Get vehicle info. 
-const batteryStatus = await kamereon.readBatteryStatus();
+const response = await kamereon.readBatteryStatus();
+const batteryStatus = response.data.attributes;
 ```
 
 ### Session
@@ -127,4 +128,3 @@ Resources API based on [@remscodes/renault-api](https://github.com/remscodes/ren
 ## License
 
 [MIT](LICENSE) © Rémy Abitbol.
-
