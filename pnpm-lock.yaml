@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@remscodes/renault-api':
-        specifier: 1.2.3
+        specifier: ^1.2.3
         version: 1.2.3
       dayjs:
         specifier: 1.11.11
