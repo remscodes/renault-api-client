@@ -1,3 +1,12 @@
+# 1.1.2 (2024-07-09)
+
+### Update
+
+- Update dependencies.
+- Remove rollup terser.
+
+> Commits : https://github.com/remscodes/renault-api-client/commits/v1.1.2
+
 # 1.1.1 (2023-12-30)
 
 ### Fixes
