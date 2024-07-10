@@ -42,9 +42,9 @@
   },
   "peerDependencies": {
     "@remscodes/renault-api": "^1.2.3",
-    "dayjs": "1.11.11",
-    "drino": "1.9.1",
-    "thror": "1.0.3"
+    "dayjs": "^1.11.11",
+    "drino": "^1.9.1",
+    "thror": "^1.0.3"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
