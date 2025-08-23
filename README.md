@@ -1,13 +1,12 @@
 <div align="center">
     <h1>Renault API Client</h1>
-    <p>Http client using Renault API</p>
+    <p>Http client using the Renault API</p>
 </div> 
 
 <div align="center">
 
 [![github ci](https://img.shields.io/github/actions/workflow/status/remscodes/renault-api-client/npm-ci.yml.svg?logo=github&label=CI&style=for-the-badge)](https://github.com/remscodes/renault-api-client/actions/workflows/npm-ci.yml)
 [![npm version](https://img.shields.io/npm/v/@remscodes/renault-api-client.svg?style=for-the-badge&logo=npm)](https://www.npmjs.org/package/@remscodes/renault-api-client)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/@remscodes/renault-api-client.svg?style=for-the-badge)](https://bundlephobia.com/package/@remscodes/renault-api-client)
 [![license](https://img.shields.io/github/license/remscodes/renault-api-client.svg?style=for-the-badge)](LICENSE)
 
 </div>
@@ -85,12 +84,12 @@ class RenaultSession {
   personId: string | undefined;
 
   // Selected account id.
-  // To be set in order to be automatically passed into each Kamereon API functions that needs it.
+  // To be set to be automatically passed into each Kamereon API functions that needs it.
   // Otherwise, it needs to be manually passed as function argument using `KamereonClient`.
   accountId: string | undefined;
 
   // Selected vehicle vin.
-  // To be set in order to be automatically passed into each Kamereon API functions that needs it.
+  // To be set to be automatically passed into each Kamereon API functions that needs it.
   // Otherwise, it needs to be manually passed as function argument using `KamereonClient`.
   vin: string | undefined;
 }
