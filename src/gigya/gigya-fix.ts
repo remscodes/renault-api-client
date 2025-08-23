@@ -11,7 +11,8 @@ function isGigyaErrorResponse(res: HttpResponse<GigyaResponse>): res is HttpResp
   return (res.body?.statusCode ?? 0) >= 400;
 }
 
-function responseToError({ headers, body, url, statusText }: HttpResponse<GigyaErrorResponse>): HttpErrorResponse {
+function responseToError(res: HttpResponse<GigyaErrorResponse>): HttpErrorResponse {
+  const { headers, body, url, statusText } = res;
   return new HttpErrorResponse({
     headers,
     url: `${url}`,

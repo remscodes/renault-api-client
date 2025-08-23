@@ -8,9 +8,10 @@ interface SessionInit {
  */
 export class RenaultSession {
 
-  public constructor(init?: SessionInit) {
-    this.locale = init?.locale ?? 'fr_FR';
-    this.country = init?.country ?? 'FR';
+  public constructor(init: SessionInit = {}) {
+    const { locale = 'fr_FR', country = 'FR' } = init;
+    this.locale = locale;
+    this.country = country;
   }
 
   /**

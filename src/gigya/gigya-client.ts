@@ -50,7 +50,7 @@ export class GigyaClient {
         queryParams: { loginID, password },
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<LoginInfoResponse>) => fixGigyaResponse(res))
+      .transform(fixGigyaResponse)
       .transform((res: HttpResponse<LoginInfoResponse>) => res.body)
       .check((result: LoginInfoResponse) => this.session.gigyaToken = result.sessionInfo?.cookieValue)
       .consume();
@@ -64,7 +64,7 @@ export class GigyaClient {
       .post<AccountInfoResponse>(GigyaApi.GET_ACCOUNT_INFO_URL, {}, {
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<AccountInfoResponse>) => fixGigyaResponse(res))
+      .transform(fixGigyaResponse)
       .transform((res: HttpResponse<AccountInfoResponse>) => res.body)
       .check((result: AccountInfoResponse) => this.session.personId = result.data?.personId)
       .consume();
@@ -83,7 +83,7 @@ export class GigyaClient {
         },
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<TokenInfoResponse>) => fixGigyaResponse(res))
+      .transform(fixGigyaResponse)
       .transform((res: HttpResponse<TokenInfoResponse>) => res.body)
       .check((token: TokenInfoResponse) => this.session.token = token.id_token)
       .consume();
@@ -97,7 +97,7 @@ export class GigyaClient {
       .post<TokenPublicInfoResponse>(GigyaApi.GET_JWT_PUBLIC_KEY_URL, {}, {
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<TokenPublicInfoResponse>) => fixGigyaResponse(res))
+      .transform(fixGigyaResponse)
       .transform((res: HttpResponse<TokenPublicInfoResponse>) => res.body)
       .consume();
   }
@@ -110,7 +110,7 @@ export class GigyaClient {
       .post<LogoutInfoResponse>(GigyaApi.LOGOUT_URL, {}, {
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<LogoutInfoResponse>) => fixGigyaResponse(res))
+      .transform(fixGigyaResponse)
       .transform((res: HttpResponse<LogoutInfoResponse>) => res.body)
       .consume();
   }

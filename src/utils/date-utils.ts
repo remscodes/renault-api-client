@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import type { PartialBy } from '../models/shared.model';
 
 export function dateFilterToParams({ start, end, period }: PartialBy<DateFilter, 'period'>, locale: string): URLSearchParams {
-  const params: URLSearchParams = new URLSearchParams({
+  const params = new URLSearchParams({
     start: normalizeDate(start, locale, period),
     end: normalizeDate(end, locale, period),
   });

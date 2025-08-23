@@ -3,5 +3,5 @@ import type { RenaultSession } from '../renault-session';
 
 export interface ClientInit {
   session?: RenaultSession;
-  onError?: (errorResponse: HttpErrorResponse, session: RenaultSession) => void;
+  onError?: (errorRes: HttpErrorResponse, session: RenaultSession) => void;
 }
