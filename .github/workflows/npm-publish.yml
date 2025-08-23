@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up PNPM
         uses: pnpm/action-setup@v4
@@ -42,7 +42,7 @@ jobs:
       id-token: write
     steps:
       - name: Git checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up PNPM
         uses: pnpm/action-setup@v4
