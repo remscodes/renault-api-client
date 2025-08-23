@@ -41,15 +41,15 @@
     "node": ">=18"
   },
   "peerDependencies": {
-    "@remscodes/renault-api": "^1.2.3",
-    "dayjs": "^1.11.11",
+    "@remscodes/renault-api": "^2.0.0",
+    "dayjs": "^1.11.13",
     "drino": "^1.9.1",
     "thror": "^1.0.3"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
     "esbuild": "^0.23.0",
-    "rollup": "^4.18.1",
+    "rollup": "^4.22.4",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-esbuild": "^6.1.1",
@@ -60,6 +60,6 @@
     "api",
     "http"
   ],
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@9.15.4",
   "sideEffects": false
 }
