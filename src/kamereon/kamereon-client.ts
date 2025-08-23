@@ -1,10 +1,9 @@
-import type { ActionChargeMode, AdapterInfoData, BatteryStatusData, ChargeHistoryData, ChargeModeData, ChargeModeInputs, ChargeScheduleInputs, ChargesData, ChargingSettingsData, CockpitData, DateFilter, HvacHistoryData, HvacScheduleInputs, HvacSessionsData, HvacSettingsData, HvacStartInputs, HvacStatusData, LockStatusData, NotificationSettingsData, Person, ResStateData, VehicleContract, VehicleDetails, VehicleLocationData, Vehicles } from '@remscodes/renault-api';
+import type { ActionChargeMode, AdapterInfoResponse, BatteryStatusResponse, ChargeHistoryResponse, ChargeModeInputs, ChargeModeResponse, ChargeScheduleInputs, ChargesResponse, ChargingSettingsResponse, CockpitResponse, DateFilter, HvacHistoryResponse, HvacScheduleInputs, HvacSessionsResponse, HvacSettingsResponse, HvacStartInputs, HvacStatusResponse, LockStatusResponse, NotificationSettingsResponse, Person, ResStateResponse, VehicleContract, VehicleDetails, VehicleLocationResponse, Vehicles } from '@remscodes/renault-api';
 import { KamereonApi, PERIOD_TZ_FORMAT } from '@remscodes/renault-api';
 import type { DrinoInstance, HttpErrorResponse, HttpRequest } from 'drino';
 import drino from 'drino';
 import { emitError } from 'thror';
 import type { ClientInit } from '../models/client-init.model';
-import type { Optional } from '../models/shared.model';
 import { RenaultSession } from '../renault-session';
 import { dateFilterToParams, formatDate } from '../utils/date-utils';
 import type { KamereonMethod, PerformArgs, ReadArgs } from './models/kamereon-client.models';
@@ -30,7 +29,7 @@ export class KamereonClient {
       },
       interceptors: {
         beforeConsume: (req: HttpRequest) => {
-          const token: Optional<string> = this.session.token;
+          const token: string | undefined = this.session.token;
           if (token) req.headers.set('x-gigya-id_token', token);
 
           req.url.searchParams.set('country', this.session.country);
@@ -110,7 +109,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readAdapter(vin?: string, accountId?: string): Promise<AdapterInfoData> {
+  public readAdapter(vin?: string, accountId?: string): Promise<AdapterInfoResponse> {
     return this.read({
       apiUrl: 'READ_ADAPTER_URL',
       method: 'readAdapter',
@@ -124,7 +123,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readBatteryStatus(vin?: string, accountId?: string): Promise<BatteryStatusData> {
+  public readBatteryStatus(vin?: string, accountId?: string): Promise<BatteryStatusResponse> {
     return this.read({
       apiUrl: 'READ_BATTERY_STATUS_URL',
       method: 'readBatteryStatus',
@@ -139,7 +138,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readChargeHistory(filter: DateFilter, vin?: string, accountId?: string): Promise<ChargeHistoryData> {
+  public readChargeHistory(filter: DateFilter, vin?: string, accountId?: string): Promise<ChargeHistoryResponse> {
     return this.read({
       apiUrl: 'READ_CHARGE_HISTORY_URL',
       method: 'readChargeHistory',
@@ -154,7 +153,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readChargeMode(vin?: string, accountId?: string): Promise<ChargeModeData> {
+  public readChargeMode(vin?: string, accountId?: string): Promise<ChargeModeResponse> {
     return this.read({
       apiUrl: 'READ_CHARGE_MODE_URL',
       method: 'readChargeMode',
@@ -169,7 +168,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readCharges(filter: Omit<DateFilter, 'period'>, vin?: string, accountId?: string): Promise<ChargesData> {
+  public readCharges(filter: Omit<DateFilter, 'period'>, vin?: string, accountId?: string): Promise<ChargesResponse> {
     return this.read({
       apiUrl: 'READ_CHARGES_URL',
       method: 'readCharges',
@@ -184,7 +183,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readChargingSettings(vin?: string, accountId?: string): Promise<ChargingSettingsData> {
+  public readChargingSettings(vin?: string, accountId?: string): Promise<ChargingSettingsResponse> {
     return this.read({
       apiUrl: 'READ_CHARGING_SETTINGS_URL',
       method: 'readChargingSettings',
@@ -198,7 +197,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readCockpit(vin?: string, accountId?: string): Promise<CockpitData> {
+  public readCockpit(vin?: string, accountId?: string): Promise<CockpitResponse> {
     return this.read({
       apiUrl: 'READ_COCKPIT_URL',
       method: 'readCockpit',
@@ -213,7 +212,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readHvacHistory(filter: DateFilter, vin?: string, accountId?: string): Promise<HvacHistoryData> {
+  public readHvacHistory(filter: DateFilter, vin?: string, accountId?: string): Promise<HvacHistoryResponse> {
     return this.read({
       apiUrl: 'READ_HVAC_HISTORY_URL',
       method: 'readHvacHistory',
@@ -229,7 +228,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readHvacSessions(filter: Omit<DateFilter, 'period'>, vin?: string, accountId?: string): Promise<HvacSessionsData> {
+  public readHvacSessions(filter: Omit<DateFilter, 'period'>, vin?: string, accountId?: string): Promise<HvacSessionsResponse> {
     return this.read({
       apiUrl: 'READ_HVAC_SESSIONS_URL',
       method: 'readHvacSessions',
@@ -244,7 +243,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readHvacStatus(vin?: string, accountId?: string): Promise<HvacStatusData> {
+  public readHvacStatus(vin?: string, accountId?: string): Promise<HvacStatusResponse> {
     return this.read({
       apiUrl: 'READ_HVAC_STATUS_URL',
       method: 'readHvacStatus',
@@ -258,7 +257,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readHvacSettings(vin?: string, accountId?: string): Promise<HvacSettingsData> {
+  public readHvacSettings(vin?: string, accountId?: string): Promise<HvacSettingsResponse> {
     return this.read({
       apiUrl: 'READ_HVAC_SETTINGS_URL',
       method: 'readHvacSettings',
@@ -272,7 +271,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readLocation(vin?: string, accountId?: string): Promise<VehicleLocationData> {
+  public readLocation(vin?: string, accountId?: string): Promise<VehicleLocationResponse> {
     return this.read({
       apiUrl: 'READ_LOCATION_URL',
       method: 'readLocation',
@@ -286,7 +285,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readLockStatus(vin?: string, accountId?: string): Promise<LockStatusData> {
+  public readLockStatus(vin?: string, accountId?: string): Promise<LockStatusResponse> {
     return this.read({
       apiUrl: 'READ_LOCK_STATUS_URL',
       method: 'readLockStatus',
@@ -300,7 +299,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readNotificationSettings(vin?: string, accountId?: string): Promise<NotificationSettingsData> {
+  public readNotificationSettings(vin?: string, accountId?: string): Promise<NotificationSettingsResponse> {
     return this.read({
       apiUrl: 'READ_NOTIFICATION_SETTINGS_URL',
       method: 'readNotificationSettings',
@@ -314,7 +313,7 @@ export class KamereonClient {
    * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
    * @param {string?} [accountId = the accountId stored in the session] - The account id.
    */
-  public readResState(vin?: string, accountId?: string): Promise<ResStateData> {
+  public readResState(vin?: string, accountId?: string): Promise<ResStateResponse> {
     return this.read({
       apiUrl: 'READ_RES_STATE_URL',
       method: 'readResState',
@@ -518,23 +517,23 @@ export class KamereonClient {
   }
 
   /** @internal */
-  private getPersonIdOrThrow(personId: Optional<string>, method: KamereonMethod): string {
+  private getPersonIdOrThrow(personId: string | undefined, method: KamereonMethod): string {
     return personId || this.getFromSessionOrThrow('personId', method);
   }
 
   /** @internal */
-  private getAccountIdOrThrow(accountId: Optional<string>, method: KamereonMethod): string {
+  private getAccountIdOrThrow(accountId: string | undefined, method: KamereonMethod): string {
     return accountId || this.getFromSessionOrThrow('accountId', method);
   }
 
   /** @internal */
-  private getVinOrThrow(vin: Optional<string>, method: KamereonMethod): string {
+  private getVinOrThrow(vin: string | undefined, method: KamereonMethod): string {
     return vin || this.getFromSessionOrThrow('vin', method);
   }
 
   /** @internal */
   private getFromSessionOrThrow(key: keyof RenaultSession, method: KamereonMethod): string {
-    const value: Optional<string> = this.session[key];
+    const value: string | undefined = this.session[key];
     if (!value) emitError('KamereonException', `Cannot ${method} because "${key}" is falsy or not stored in session.`);
 
     return value;

@@ -1,5 +1,3 @@
-import type { Optional } from './models/shared.model';
-
 interface SessionInit {
   locale?: string;
   country?: string;
@@ -31,35 +29,35 @@ export class RenaultSession {
   /**
    * Token to use Gigya getJWT API.
    *
-   * Automatically set when Gigya login API is called and succeed.
+   * Automatically set when Gigya login API is called and succeeds.
    */
-  public gigyaToken: Optional<string>;
+  public gigyaToken: string | undefined;
   /**
    * Token to use Kamereon API.
    *
-   * Automatically set when Gigya getJWT API is called and succeed.
+   * Automatically set when Gigya getJWT API is called and succeeds.
    */
-  public token: Optional<string>;
+  public token: string | undefined;
   /**
    * Selected person id.
    *
-   * Automatically set when Gigya getAccountInfo API is called and succeed.
+   * Automatically set when Gigya getAccountInfo API is called and succeeds.
    */
-  public personId: Optional<string>;
+  public personId: string | undefined;
   /**
    * Selected account id.
    *
-   * To be set in order to be automatically passed into each Kamereon API functions that needs it.
+   * To be set to be automatically passed into each Kamereon API function that needs it.
    *
-   * Otherwise, it needs to be manually passed as function argument using `KamereonClient`.
+   * Otherwise, it needs to be manually passed as a function argument using `KamereonClient`.
    */
-  public accountId: Optional<string>;
+  public accountId: string | undefined;
   /**
    * Selected vehicle vin.
    *
-   * To be set in order to be automatically passed into each Kamereon API functions that needs it.
+   * To be set to be automatically passed into each Kamereon API function that needs it.
    *
-   * Otherwise, it needs to be manually passed as function argument using `KamereonClient`.
+   * Otherwise, it needs to be manually passed as a function argument using `KamereonClient`.
    */
-  public vin: Optional<string>;
+  public vin: string | undefined;
 }

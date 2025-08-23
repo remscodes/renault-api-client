@@ -1,5 +1,5 @@
 import type { KamereonApi } from '@remscodes/renault-api';
-import type { MethodsOf, Optional, PrefixWith } from '../../models/shared.model';
+import type { MethodsOf, PrefixWith } from '../../models/shared.model';
 import type { KamereonClient } from '../kamereon-client';
 
 /** @internal **/
@@ -17,8 +17,8 @@ export interface PerformArgs extends CommonArgs {
 /** @internal **/
 interface CommonArgs {
   method: KamereonMethod;
-  accountId: Optional<string>;
-  vin: Optional<string>;
+  accountId: string | undefined;
+  vin: string | undefined;
 }
 
 /** @internal **/

@@ -1,9 +1,8 @@
-import type { AccountInfo, LoginInfo, LogoutInfo, TokenInfo, TokenPublicInfo } from '@remscodes/renault-api';
+import type { AccountInfoResponse, LoginInfoResponse, LogoutInfoResponse, TokenInfoResponse, TokenPublicInfoResponse } from '@remscodes/renault-api';
 import { GigyaApi } from '@remscodes/renault-api';
 import type { DrinoInstance, HttpErrorResponse, HttpRequest, HttpResponse } from 'drino';
 import drino from 'drino';
 import type { ClientInit } from '../models/client-init.model';
-import type { Optional } from '../models/shared.model';
 import { RenaultSession } from '../renault-session';
 import { fixGigyaResponse } from './gigya-fix';
 
@@ -24,7 +23,7 @@ export class GigyaClient {
       },
       interceptors: {
         beforeConsume: (req: HttpRequest) => {
-          const token: Optional<string> = this.session.gigyaToken;
+          const token: string | undefined = this.session.gigyaToken;
           if (token) req.url.searchParams.set('login_token', token);
         },
         beforeError: (res: HttpErrorResponse) => onError?.(res, this.session),
@@ -45,29 +44,29 @@ export class GigyaClient {
    * @param {string} loginID - The user login.
    * @param {string} password - The user password.
    */
-  public login(loginID: string, password: string): Promise<LoginInfo> {
+  public login(loginID: string, password: string): Promise<LoginInfoResponse> {
     return this.httpClient
-      .post<LoginInfo>(GigyaApi.LOGIN_URL, {}, {
+      .post<LoginInfoResponse>(GigyaApi.LOGIN_URL, {}, {
         queryParams: { loginID, password },
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<LoginInfo>) => fixGigyaResponse(res))
-      .transform((res: HttpResponse<LoginInfo>) => res.body)
-      .check((result: LoginInfo) => this.session.gigyaToken = result.sessionInfo?.cookieValue)
+      .transform((res: HttpResponse<LoginInfoResponse>) => fixGigyaResponse(res))
+      .transform((res: HttpResponse<LoginInfoResponse>) => res.body)
+      .check((result: LoginInfoResponse) => this.session.gigyaToken = result.sessionInfo?.cookieValue)
       .consume();
   }
 
   /**
    * Get account info.
    */
-  public getAccountInfo(): Promise<AccountInfo> {
+  public getAccountInfo(): Promise<AccountInfoResponse> {
     return this.httpClient
-      .post<AccountInfo>(GigyaApi.GET_ACCOUNT_INFO_URL, {}, {
+      .post<AccountInfoResponse>(GigyaApi.GET_ACCOUNT_INFO_URL, {}, {
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<AccountInfo>) => fixGigyaResponse(res))
-      .transform((res: HttpResponse<AccountInfo>) => res.body)
-      .check((result: AccountInfo) => this.session.personId = result.data?.personId)
+      .transform((res: HttpResponse<AccountInfoResponse>) => fixGigyaResponse(res))
+      .transform((res: HttpResponse<AccountInfoResponse>) => res.body)
+      .check((result: AccountInfoResponse) => this.session.personId = result.data?.personId)
       .consume();
   }
 
@@ -75,44 +74,44 @@ export class GigyaClient {
    * Get JWT.
    * @param {number} [expiration = 900] - The chosen expiration (in milliseconds) of the JWT.
    */
-  public getJwt(expiration: number = 900): Promise<TokenInfo> {
+  public getJwt(expiration: number = 900): Promise<TokenInfoResponse> {
     return this.httpClient
-      .post<TokenInfo>(GigyaApi.GET_JWT_URL, {}, {
+      .post<TokenInfoResponse>(GigyaApi.GET_JWT_URL, {}, {
         queryParams: {
           fields: ['data.personId', 'data.gigyaDataCenter'],
           expiration: `${expiration}`,
         },
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<TokenInfo>) => fixGigyaResponse(res))
-      .transform((res: HttpResponse<TokenInfo>) => res.body)
-      .check((token: TokenInfo) => this.session.token = token.id_token)
+      .transform((res: HttpResponse<TokenInfoResponse>) => fixGigyaResponse(res))
+      .transform((res: HttpResponse<TokenInfoResponse>) => res.body)
+      .check((token: TokenInfoResponse) => this.session.token = token.id_token)
       .consume();
   }
 
   /**
    * Get public info about JWT key.
    */
-  public getJwtPublicKey(): Promise<TokenPublicInfo> {
+  public getJwtPublicKey(): Promise<TokenPublicInfoResponse> {
     return this.httpClient
-      .post<TokenPublicInfo>(GigyaApi.GET_JWT_PUBLIC_KEY_URL, {}, {
+      .post<TokenPublicInfoResponse>(GigyaApi.GET_JWT_PUBLIC_KEY_URL, {}, {
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<TokenPublicInfo>) => fixGigyaResponse(res))
-      .transform((res: HttpResponse<TokenPublicInfo>) => res.body)
+      .transform((res: HttpResponse<TokenPublicInfoResponse>) => fixGigyaResponse(res))
+      .transform((res: HttpResponse<TokenPublicInfoResponse>) => res.body)
       .consume();
   }
 
   /**
    * Logout from Gigya service.
    */
-  public logout(): Promise<LogoutInfo> {
+  public logout(): Promise<LogoutInfoResponse> {
     return this.httpClient
-      .post<LogoutInfo>(GigyaApi.LOGOUT_URL, {}, {
+      .post<LogoutInfoResponse>(GigyaApi.LOGOUT_URL, {}, {
         wrapper: 'response',
       })
-      .transform((res: HttpResponse<LogoutInfo>) => fixGigyaResponse(res))
-      .transform((res: HttpResponse<LogoutInfo>) => res.body)
+      .transform((res: HttpResponse<LogoutInfoResponse>) => fixGigyaResponse(res))
+      .transform((res: HttpResponse<LogoutInfoResponse>) => res.body)
       .consume();
   }
 }
