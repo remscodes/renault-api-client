@@ -1,4 +1,4 @@
-import type { ActionChargeMode, AdapterInfoResponse, BatteryStatusResponse, ChargeHistoryResponse, ChargeModeInputs, ChargeModeResponse, ChargeScheduleInputs, ChargesResponse, ChargingSettingsResponse, CockpitResponse, DateFilter, HvacHistoryResponse, HvacScheduleInputs, HvacSessionsResponse, HvacSettingsResponse, HvacStartInputs, HvacStatusResponse, LockStatusResponse, NotificationSettingsResponse, Person, ResStateResponse, VehicleContract, VehicleDetails, VehicleLocationResponse, Vehicles } from '@remscodes/renault-api';
+import type { ActionChargeMode, AdapterInfoResponse, BatteryStatusResponse, ChargeHistoryResponse, ChargeModeInputs, ChargeModeResponse, ChargeScheduleInputs, ChargesResponse, ChargingSettingsResponse, CockpitResponse, DateFilter, HvacHistoryResponse, HvacScheduleInputs, HvacSessionsResponse, HvacSettingsResponse, HvacStartInputs, HvacStatusResponse, LockStatusResponse, NotificationSettingsResponse, Person, PressureResponse, ResStateResponse, VehicleContract, VehicleDetails, VehicleLocationResponse, Vehicles } from '@remscodes/renault-api';
 import { KamereonApi, PERIOD_TZ_FORMAT } from '@remscodes/renault-api';
 import type { DrinoInstance, HttpErrorResponse, HttpRequest } from 'drino';
 import drino from 'drino';
@@ -317,6 +317,20 @@ export class KamereonClient {
     return this.read({
       apiUrl: 'READ_RES_STATE_URL',
       method: 'readResState',
+      accountId,
+      vin,
+    });
+  }
+
+  /**
+   * Get vehicle pressure.
+   * @param {string?} [vin = the vin stored in the session] - The vehicle vin.
+   * @param {string?} [accountId = the accountId stored in the session] - The account id.
+   */
+  public readPressure(vin?: string, accountId?: string): Promise<PressureResponse> {
+    return this.read({
+      apiUrl: 'READ_PRESSURE_URL',
+      method: 'readPressure',
       accountId,
       vin,
     });
